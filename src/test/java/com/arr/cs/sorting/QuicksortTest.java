@@ -1,4 +1,4 @@
-package com.arr.cs.sorting.quicksort;
+package com.arr.cs.sorting;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,13 +8,9 @@ import org.junit.jupiter.api.Test;
 
 class QuicksortTest {
 
-    private static final int ARRAY_SIZE = 30;
-    private static final int MIN = 0;
-    private static final int MAX = 99;
-
     @Test
     void sort() {
-        int[] array = ArrayUtil.generateRandomArray(ARRAY_SIZE, MIN, MAX);
+        int[] array = ArrayUtil.generateRandomArray();
 
         int[] copy = Arrays.copyOf(array, array.length);
         Arrays.sort(copy);

@@ -1,6 +1,26 @@
-package com.arr.cs.sorting.quicksort;
+package com.arr.cs.sorting;
 
+import com.arr.cs.util.ArrayUtil;
+import lombok.extern.slf4j.Slf4j;
+import java.util.Arrays;
+
+@Slf4j
 class Quicksort {
+
+    public static void main(String[] args) {
+
+        log.info("Quicksort");
+
+        int[] array = ArrayUtil.generateRandomArray();
+
+        log.info("Unsorted array");
+        log.info(Arrays.toString(array));
+
+        Quicksort.sort(array, 0, array.length - 1);
+
+        log.info("Sorted array");
+        log.info(Arrays.toString(array));
+    }
 
     /**
      * Single-pivot quicksort implementation
@@ -28,21 +48,13 @@ class Quicksort {
 
         for (int i = start; i < end; i++) {
             if (arr[i] <= pivot) {
-                swap(arr, i, partitionIndex);
+                ArrayUtil.swap(arr, i, partitionIndex);
                 partitionIndex++;
             }
         }
 
-        swap(arr, partitionIndex, end);
+        ArrayUtil.swap(arr, partitionIndex, end);
 
         return partitionIndex;
-    }
-
-    private static void swap(int[] arr, int index, int partitionIndex) {
-        int indexValue = arr[index];
-        int pivotIndexValue = arr[partitionIndex];
-
-        arr[index] = pivotIndexValue;
-        arr[partitionIndex] = indexValue;
     }
 }
