@@ -8,7 +8,7 @@ public class Power {
     public static void main(String[] args) {
 
         int base = -2;
-        int power = 2;
+        int power = 4;
 
         log.info("Value of {}^{} = {}", base, power, power(base, power));
 

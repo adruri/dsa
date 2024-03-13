@@ -14,8 +14,8 @@ public class NaturalNumbers {
             return;
         }
 
-        printNaturalNumbers(n - 1);
         log.info(String.valueOf(n));
+        printNaturalNumbers(n - 1);
     }
 
 }

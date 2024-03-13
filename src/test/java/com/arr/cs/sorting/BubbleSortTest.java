@@ -19,4 +19,22 @@ class BubbleSortTest {
 
         assertThat(array).isEqualTo(copy);
     }
+
+    @Test
+    void test() {
+        int flagA = Integer.parseInt("10000", 2);
+        int flagB = Integer.parseInt("01000", 2);
+
+        int withFlagA = 0 | flagA;
+        System.out.println("With flag A: " + withFlagA);
+
+        int withFlagB = 0 | flagB;
+        System.out.println("With flag B: " + withFlagB);
+
+        int withFlagAAndB = (0 | flagA) | flagB;
+        System.out.println("With flag A and B: " + withFlagAAndB);
+
+        System.out.println("Hex 16: " + Integer.toHexString(16));
+
+    }
 }
