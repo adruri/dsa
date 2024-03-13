@@ -2,6 +2,13 @@ package com.arr.cs.sorting.quicksort;
 
 class Quicksort {
 
+    /**
+     * Single-pivot quicksort implementation
+     *
+     * @param arr the array to sort
+     * @param start start index
+     * @param end end index
+     */
     static void sort(int[] arr, int start, int end) {
 
         if (start >= end) {
