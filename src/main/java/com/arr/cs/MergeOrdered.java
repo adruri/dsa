@@ -3,7 +3,7 @@ package com.arr.cs;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MeliMergeOrdered {
+public class MergeOrdered {
     public List<Integer> mergeArrays(List<Integer> a, List<Integer> b) {
 
         List<Integer> result = new ArrayList<>();

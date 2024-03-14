@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MeliMergeOrderedTest {
+public class MergeOrderedTest {
 
     @Test
     void sameSizeArrays_shouldOrder() {
@@ -18,7 +18,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 2, 2, 3, 3, 4, 4, 4, 5, 5);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -32,7 +32,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -46,7 +46,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 2, 2, 3, 3, 3, 4, 4, 5, 6);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -60,7 +60,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 1, 2, 3, 4, 5, 6, 8);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -74,7 +74,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -88,7 +88,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -102,7 +102,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 1, 1, 2, 2, 2, 3, 3);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -115,7 +115,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -128,7 +128,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(5, 10, 15, 20, 25, 30, 35);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -140,7 +140,7 @@ public class MeliMergeOrderedTest {
         List<Integer> a = new ArrayList<>();
         List<Integer> b = new ArrayList<>();
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -154,7 +154,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 2, 3);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -168,7 +168,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(3, 5);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -182,7 +182,7 @@ public class MeliMergeOrderedTest {
 
         List<Integer> expected = Arrays.asList(1, 2, 2, 2, 3, 3, 3, 4);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
@@ -197,7 +197,7 @@ public class MeliMergeOrderedTest {
         List<Integer> expected = Arrays
                 .asList(500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000);
 
-        MeliMergeOrdered merge = new MeliMergeOrdered();
+        MergeOrdered merge = new MergeOrdered();
 
         List<Integer> result = merge.mergeArrays(a, b);
 
