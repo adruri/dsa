@@ -91,9 +91,21 @@ class AnagramFinderTest {
     }
 
     @Test
-    void gpt5_false() {
+    void gpt5_true() {
         String word = "12345";
         String anagram = "54321";
+
+        AnagramFinder anagramFinder = new AnagramFinder();
+
+        boolean result = anagramFinder.find(word, anagram);
+
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void gpt6_true() {
+        String word = "1213452";
+        String anagram = "1254321";
 
         AnagramFinder anagramFinder = new AnagramFinder();
 
