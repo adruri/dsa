@@ -7,13 +7,14 @@ import java.util.Map;
 
 @Slf4j
 public class AnagramFinder {
+
     public boolean find(String word, String anagram) {
 
         Map<Character, Integer> wordMap = createCharMapFromString(word);
         Map<Character, Integer> anagramMap = createCharMapFromString(anagram);
 
-        log.info("wordMap -> {}", wordMap);
-        log.info("anagramMap -> {}", anagramMap);
+        log.debug("wordMap -> {}", wordMap);
+        log.debug("anagramMap -> {}", anagramMap);
 
         return wordMap.equals(anagramMap);
     }
