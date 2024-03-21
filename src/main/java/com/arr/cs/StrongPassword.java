@@ -8,6 +8,7 @@ public class StrongPassword {
     private static final String SPECIAL_CHARACTERS = "!@#$%^&*()-+";
     private static final int MIN_LENGTH = 6;
     private static final int NUM_OF_CONSTRAINTS = 5;
+
     public int check(String password) {
 
         boolean numbers = false;
@@ -56,11 +57,6 @@ public class StrongPassword {
             result--;
         }
 
-        if (!minLength) {
-            return result > MIN_LENGTH ? result : MIN_LENGTH - password.length();
-        }
-
         return result;
     }
-
 }
