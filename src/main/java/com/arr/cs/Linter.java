@@ -4,6 +4,9 @@ import java.util.*;
 
 public class Linter {
 
+    static final String RESULT_OK = "OK";
+    static final String RESULT_MISSING_OPENING = "Missing opening ";
+    static final String RESULT_MISSING_CLOSING = "Missing closing ";
     private static final Set<Character> OPENING_BRACES = new HashSet<>(
             Arrays.asList(
                     '(',
@@ -11,7 +14,6 @@ public class Linter {
                     '{'
             )
     );
-
     private static final Set<Character> CLOSING_BRACES = new HashSet<>(
             Arrays.asList(
                     ')',
@@ -19,52 +21,38 @@ public class Linter {
                     '}'
             )
     );
-
-    private static final Map<Character, Character> MATCHING_OPENING_BRACES = createBracesMap();
-    public String check1(String codeLine) {
-
-        Stack<Character> characterStack = new Stack<>();
-
-        for (char currentChar : codeLine.toCharArray()) {
-            if (isOpeningBrace(currentChar)) {
-                characterStack.push(currentChar);
-            } else if (isClosingBrace(currentChar)) {
-                char lastBraceInStack = characterStack.pop();
-                if (MATCHING_OPENING_BRACES.get(lastBraceInStack).equals(currentChar)) {
-                    continue;
-                }
-
-                return "Missing matching " + lastBraceInStack;
-            }
-        }
-
-        return characterStack.empty() ? "OK" : "Missing matching " + characterStack.peek();
-    }
+    private static final Map<Character, Character> MATCHING_OPENING_BRACES = Map.of(
+            '(', ')',
+            '[', ']',
+            '{', '}'
+    );
 
     public String check(String codeLine) {
-        Deque<Character> characterStack = new ArrayDeque<>();
 
-        for (Character currentChar : codeLine.toCharArray()) {
+        Deque<Character> braceStack = new LinkedList<>();
 
-            if (isOpeningBrace(currentChar)) {
-                characterStack.push(currentChar);
+        for (Character currentBrace : codeLine.toCharArray()) {
+            if (isOpeningBrace(currentBrace)) {
+                braceStack.offerLast(currentBrace);
                 continue;
             }
 
-            if (isClosingBrace(currentChar)) {
-                Character lastBraceInStack = characterStack.pollFirst();
+            if (isClosingBrace(currentBrace)) {
+                Character lastOpeningBrace = braceStack.pollLast();
 
-                if (lastBraceInStack == null) {
-                    return "Missing opening brace for " + currentChar;
+                if (MATCHING_OPENING_BRACES.get(lastOpeningBrace).equals(currentBrace)) {
+                    continue;
                 }
 
-                if (!MATCHING_OPENING_BRACES.get(lastBraceInStack).equals(currentChar)) {
-                    return "Missing opening brace for " + currentChar;
-                }
+                return RESULT_MISSING_OPENING + currentBrace;
             }
         }
 
-        return "OK";
+        if (!braceStack.isEmpty()) {
+            return RESULT_MISSING_CLOSING + braceStack.pollLast();
+        }
+
+        return RESULT_OK;
     }
 
     private boolean isOpeningBrace(char character) {
@@ -73,15 +61,5 @@ public class Linter {
 
     private boolean isClosingBrace(char character) {
         return CLOSING_BRACES.contains(character);
-    }
-
-    private static Map<Character, Character> createBracesMap() {
-        Map<Character, Character> result = new HashMap<>();
-
-        result.put('[' , ']');
-        result.put('(' , ')');
-        result.put('{' , '}');
-
-        return result;
     }
 }

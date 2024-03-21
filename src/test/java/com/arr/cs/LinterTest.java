@@ -11,13 +11,13 @@ public class LinterTest {
     @Test
     void correctBraces_shouldReturnOK() {
 
-        String codeLine = "(([[]]))";
+        String codeLine = "( ( [ [] ] ) )";
 
         Linter linter = new Linter();
 
         String result = linter.check(codeLine);
 
-        assertThat(result).isEqualTo("OK");
+        assertThat(result).isEqualTo(Linter.RESULT_OK);
 
     }
 
@@ -30,7 +30,7 @@ public class LinterTest {
 
         String result = linter.check(codeLine);
 
-        assertThat(result).isEqualTo("Missing matching [");
+        assertThat(result).isEqualTo(Linter.RESULT_MISSING_OPENING + ")");
 
     }
 
@@ -43,7 +43,7 @@ public class LinterTest {
 
         String result = linter.check(codeLine);
 
-        assertThat(result).isEqualTo("Missing matching [");
+        assertThat(result).isEqualTo(Linter.RESULT_MISSING_OPENING + ")");
 
     }
 
@@ -56,8 +56,18 @@ public class LinterTest {
 
         String result = linter.check(codeLine);
 
-        assertThat(result).isEqualTo("OK");
+        assertThat(result).isEqualTo(Linter.RESULT_OK);
 
+    }
+
+    @Test
+    void missingClosingBrace() {
+        String codeLine = "{()";
+        Linter linter = new Linter();
+
+        String result = linter.check(codeLine);
+
+        assertThat(result).isEqualTo(Linter.RESULT_MISSING_CLOSING + "{");
     }
 
 }
