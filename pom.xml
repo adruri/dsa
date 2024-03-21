@@ -8,10 +8,10 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.arr</groupId>
-	<artifactId>cs</artifactId>
+	<groupId>com.adruri</groupId>
+	<artifactId>dsa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CS</name>
+	<name>DSA</name>
 	<description>DSA</description>
 	<properties>
 		<java.version>17</java.version>
